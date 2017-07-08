@@ -43,7 +43,10 @@ class UI(QMainWindow, ui_samainwindow.Ui_SAMainWindow,Chart,Nominatim):
     def CalculateBirth(self):
 
 
-        year=
+        year=self.DateInput.date().year()
+        month=self.DateInput.date().month()
+        day = self.DateInput.date().day()
+
 
         self.Bday_accurate = self.Hscope.DateTime(1983, 11, 7, 9, 22, 0)
 
