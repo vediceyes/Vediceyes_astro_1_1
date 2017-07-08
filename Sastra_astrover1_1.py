@@ -8,7 +8,13 @@ import collections
 from Swiss_eph_constants import *
 from geopy.geocoders import Nominatim
 from ChartCalculations import Chart
+import pytz
+from pytz import timezone
+import datetime
 
+Timezone_list= []
+
+Timezone_list= pytz.all_timezones
 
 import ui_samainwindow
 import sys
@@ -26,6 +32,7 @@ class UI(QMainWindow, ui_samainwindow.Ui_SAMainWindow,Chart,Nominatim):
 
         # Object connections:
 
+        self.Timezone.addItems(Timezone_list)
         self.setEPH.clicked.connect(self.setEPHLocation)
         self.CalcBirth.clicked.connect(self.CalculateBirth)
 
@@ -47,22 +54,25 @@ class UI(QMainWindow, ui_samainwindow.Ui_SAMainWindow,Chart,Nominatim):
         month=self.DateInput.date().month()
         day = self.DateInput.date().day()
 
+        hour = self.TimeInput.time().hour()
+        minute= self.TimeInput.time().minute()
 
-        self.Bday_accurate = self.Hscope.DateTime(1983, 11, 7, 9, 22, 0)
+        local_tz = timezone(self.Timezone.currentText())
 
+        t = local_tz.localize(datetime.datetime(year, month, day, hour, minute))
 
+        t_utc = t.astimezone(pytz.UTC)
 
+        hour_utc= t_utc.hour
+        minute_utc= t_utc.minute
 
+        Bday_accurate = self.Hscope.DateTime(year, month, day, hour_utc, minute_utc, 0)
 
+        (HouseDict, HousePosList) = self.Hscope.CaclHouses(Bday_accurate, self.location.latitude, self.location.longitude)
 
+        self.Hscope.CalcPlanets(HouseDict, Bday_accurate)
 
-
-
-
-
-
-
-
+        self.Hscope.getASC(HouseDict)
 
 
 

@@ -144,6 +144,8 @@ lon = 80.28333333
 
 Hscope.Setup_eph(lat, lon)
 
+
+
 # Get Julian date based on Bday and time
 Bday_accurate = Hscope.DateTime(1983, 11, 7, 9, 22, 0)
 

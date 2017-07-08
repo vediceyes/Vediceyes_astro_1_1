@@ -71,8 +71,8 @@ class Chart(object):
         print("")
 
 
-    def CaclHouses(self):
-        house_loc = swe.houses_ex(self.Bday_accurate[1], lat, lon, str.encode('P'), FLG_SIDEREAL)
+    def CaclHouses(self, Bday_accurate, lat, lon):
+        house_loc = swe.houses_ex(Bday_accurate[1], lat, lon, str.encode('P'), FLG_SIDEREAL)
 
         Cusps = house_loc[0]
 
@@ -89,7 +89,7 @@ class Chart(object):
 
         return HouseDict,HousePosList
 
-    def CalcPlanets(self,HouseDict):
+    def CalcPlanets(self,HouseDict,Bday_accurate):
         # print("HouseposList", HousePosList)
 
         print("")
@@ -102,7 +102,7 @@ class Chart(object):
         PlanetZodiacDict = collections.OrderedDict()
 
         for i in Planet_List_loop:
-            planet_pos = swe.calc_ut(self.Bday_accurate[1], i, FLG_SIDEREAL + FLG_SWIEPH)
+            planet_pos = swe.calc_ut(Bday_accurate[1], i, FLG_SIDEREAL + FLG_SWIEPH)
 
             PlanetLocDict[Planet_List[i]] = planet_pos[0]
             PlanetZodiacDict[Planet_List[i]] = Zodiac_sign[int(planet_pos[0] / 30)]
@@ -111,7 +111,7 @@ class Chart(object):
 
             print(Planet_List[i],"("+Planet_Element[Planet_List[i]]+")", " in House", HouseDict[self.getHouse(PlanetLocDict, HouseDict, Planet_List[i])], " in Lagna ", Zodiac_sign[int(planet_pos[0]/ 30)], "("+ Lagna_Element[Zodiac_sign[int(planet_pos[0]/ 30)]]+")")
 
-    def GetAyanamsa(self):
+    def GetAyanamsa(self, Bday_accurate):
 
         ayan = swe.get_ayanamsa_ut(self.Bday_accurate[1])
 
