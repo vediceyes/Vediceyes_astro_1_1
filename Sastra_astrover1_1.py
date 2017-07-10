@@ -11,6 +11,10 @@ from ChartCalculations import Chart
 import pytz
 from pytz import timezone
 import datetime
+import openpyxl
+
+from openpyxl import load_workbook
+
 
 Timezone_list= []
 
@@ -48,7 +52,8 @@ class UI(QMainWindow, ui_samainwindow.Ui_SAMainWindow,Chart,Nominatim):
 
 
     def CalculateBirth(self):
-
+        wb = load_workbook('BirthChart.xlsx')
+        ws = wb.active
 
         year=self.DateInput.date().year()
         month=self.DateInput.date().month()
@@ -70,9 +75,11 @@ class UI(QMainWindow, ui_samainwindow.Ui_SAMainWindow,Chart,Nominatim):
 
         (HouseDict, HousePosList) = self.Hscope.CaclHouses(Bday_accurate, self.location.latitude, self.location.longitude)
 
-        self.Hscope.CalcPlanets(HouseDict, Bday_accurate)
+        self.Hscope.CalcPlanets(HouseDict, Bday_accurate, ws)
 
         self.Hscope.getASC(HouseDict)
+
+        wb.save('BirthChart.xlsx')
 
 
 
