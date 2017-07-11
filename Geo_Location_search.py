@@ -14,6 +14,6 @@ from openpyxl import load_workbook
 
 from geopy.geocoders import Nominatim
 geolocator = Nominatim(scheme='http')
-location = geolocator.geocode("madras, Tamil Nadu, India")
+location = geolocator.geocode("guntur, andra pradesh, India")
 
 print(location.latitude, location.longitude)

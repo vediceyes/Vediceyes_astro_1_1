@@ -7,25 +7,25 @@ JULIAN_CAL=0
 
 
 Zodiac_sign= {0:"Ari",1:"Tau", 2:"Gem", 3:"Can", 4:"Leo", 5:"Vir", 6:"Lib", 7:"Sco", 8:"Sag", 9:"Cap", 10:"Aqu", 11:"Pis"}
-Planet_List = {0:"SUN$", 1:"MOON", 2:"MERC", 3:"VENU", 4:"MARS", 5:"JUPI", 6:"SATU",7:"URAN", 8:"NEPT", 9:"PLUT", 11:"RAHU"}
+Planet_List = {0:"SU", 1:"MO", 2:"ME", 3:"VE", 4:"MA", 5:"JU", 6:"SA",7:"URAN", 8:"NEPT", 9:"PLUT", 10:"RA"}
 House_list= [1,2,3,4,5,6,7,8,9,10,11,12]
 #Planet_List_loop = [0,1,2,3,4,5,6,7,8,9,11]
-Planet_List_loop = [0,1,2,3,4,5,6,11]
-Planet_Loop = ["SUN$", "MOON","MERC","VENU","MARS","JUPI","SATU","RAHU"]
-Planet_Loop_ws = {"SUN$":"2","MOON":"3","MERC":"4","VENU":"5","MARS":"6","JUPI":"7","SATU":"8","RAHU":"9"}
+Planet_List_loop = [0,1,2,3,4,5,6,10]
+Planet_Loop = ["SU", "MO","ME","VE","MA","JU","SA","RA"]
+Planet_Loop_ws = {"SU":"2","MO":"3","ME":"4","VE":"5","MA":"6","JU":"7","SA":"8","RA":"9"}
 
-Planet_Element = {"SUN$":"Fire ",
-                  "MOON":"Water",
-                  "MERC":"Earth",
-                  "VENU":"Water",
-                  "MARS":"Fire ",
-                  "JUPI":"Ether",
-                  "SATU":"Air  ",
+Planet_Element = {"SU":"Fire ",
+                  "MO":"Water",
+                  "ME":"Earth",
+                  "VE":"Water",
+                  "MA":"Fire ",
+                  "JU":"Ether",
+                  "SA":"Air  ",
                   "URAN":"Fire ",
                   "NEPT":"?    ",
                   "PLUT":"?    ",
-                  "RAHU":"Air  ",
-                  "KETU":"Fire "}
+                  "RA":"Air  ",
+                  "KE":"Fire "}
 
 Lagna_Element = {"Ari":"Fire ",
                  "Tau":"Earth",
@@ -40,209 +40,209 @@ Lagna_Element = {"Ari":"Fire ",
                  "Aqu":"Air  ",
                  "Pis":"Water"}
 
-Exalt_List = {"SUN$":"Ari",
-              "MOON":"Tau",
-              "MERC":"Vir",
-              "VENU":"Pis",
-              "MARS":"Cap",
-              "JUPI":"Can",
-              "SATU":"Lib",
+Exalt_List = {"SU":"Ari",
+              "MO":"Tau",
+              "ME":"Vir",
+              "VE":"Pis",
+              "MA":"Cap",
+              "JU":"Can",
+              "SA":"Lib",
               "URAN":"?  ",
               "NEPT":"?  ",
               "PLUT":"?  ",
-              "RAHU":"Tau",
-              "KETU":"Sco"}
+              "RA":"Tau",
+              "KE":"Sco"}
 
-Fall_List = {"SUN$":"Lib",
-             "MOON":"Sco",
-             "MERC":"Pis",
-             "VENU":"Vir",
-             "MARS":"Can",
-             "JUPI":"Cap",
-             "SATU":"Ari",
+Fall_List = {"SU":"Lib",
+             "MO":"Sco",
+             "ME":"Pis",
+             "VE":"Vir",
+             "MA":"Can",
+             "JU":"Cap",
+             "SA":"Ari",
              "URAN":"?  ",
              "NEPT":"?  ",
              "PLUT":"?  ",
-             "RAHU":"Sco",
-             "KETU":"Tau"}
+             "RA":"Sco",
+             "KE":"Tau"}
 
-Trikona_List = {"SUN$":"Leo",
-                "MOON":"Tau",
-                "MERC":"Vir",
-                "VENU":"Lib",
-                "MARS":"Ari",
-                "JUPI":"Sag",
-                "SATU":"Aqu",
+Trikona_List = {"SU":"Leo",
+                "MO":"Tau",
+                "ME":"Vir",
+                "VE":"Lib",
+                "MA":"Ari",
+                "JU":"Sag",
+                "SA":"Aqu",
                 "URAN":"?  ",
                 "NEPT":"?  ",
                 "PLUT":"?  ",
-                "RAHU":"N/A",
-                "KETU":"N/A"}
+                "RA":"N/A",
+                "KE":"N/A"}
 
-Malefics_List = ["SUN$", "MARS", "SATU", "RAHU", "KETU"]
+Malefics_List = ["SU", "MA", "SA", "RA", "KE"]
 
-Benefics_List = ["MOON", "VENU", "MERC", "JUPI"]
+Benefics_List = ["MO", "VE", "ME", "JU"]
 
 
-Ruler_List    = {"Ari":"MARS",
-                 "Tau":"VENU",
-                 "Gem":"MERC",
-                 "Can":"MOON",
-                 "Leo":"SUN$",
-                 "Vir":"MERC",
-                 "Lib":"VENU",
-                 "Sco":"MARS",
-                 "Sag":"JUPI",
-                 "Cap":"SATU",
-                 "Aqu":"SATU",
-                 "Pis":"JUPI"}
+Ruler_List    = {"Ari":"MA",
+                 "Tau":"VE",
+                 "Gem":"ME",
+                 "Can":"MO",
+                 "Leo":"SU",
+                 "Vir":"ME",
+                 "Lib":"VE",
+                 "Sco":"MA",
+                 "Sag":"JU",
+                 "Cap":"SA",
+                 "Aqu":"SA",
+                 "Pis":"JU"}
 
 # Moon Rules Cancer here,,, but Trikona Taurus.. Whyyy?
 
-Planet_sex     = {"SUN$":"Male",
-                  "MOON":"Female",
-                  "MERC":"Neutral",
-                  "VENU":"Female",
-                  "MARS":"Male",
-                  "JUPI":"Male",
-                  "SATU":"Neutral",
+Planet_sex     = {"SU":"Male",
+                  "MO":"Female",
+                  "ME":"Neutral",
+                  "VE":"Female",
+                  "MA":"Male",
+                  "JU":"Male",
+                  "SA":"Neutral",
                   "URAN":"?",
                   "NEPT":"?",
                   "PLUT":"?",
-                  "RAHU":"N/A",
-                  "KETU":"N/A"}
+                  "RA":"N/A",
+                  "KE":"N/A"}
 
-Planet_caste   = {"SUN$":"Ksatriya",
-                  "MOON":"Vaisya",
-                  "MERC":"Vaisya",
-                  "VENU":"Brahmana",
-                  "MARS":"Ksatriya",
-                  "JUPI":"Brahmana",
-                  "SATU":"Sudras",
+Planet_caste   = {"SU":"Ksatriya",
+                  "MO":"Vaisya",
+                  "ME":"Vaisya",
+                  "VE":"Brahmana",
+                  "MA":"Ksatriya",
+                  "JU":"Brahmana",
+                  "SA":"Sudras",
                   "URAN":"?",
                   "NEPT":"?",
                   "PLUT":"?",
-                  "RAHU":"Ksatriya",
-                  "KETU":"Ksatriya"}
+                  "RA":"Ksatriya",
+                  "KE":"Ksatriya"}
 
-Planet_modes   = {"SUN$":"Satvic",
-                  "MOON":"Satvic",
-                  "MERC":"Rajasic",
-                  "VENU":"Rajasic",
-                  "MARS":"Tamasic",
-                  "JUPI":"Satvic",
-                  "SATU":"Tamasic",
+Planet_modes   = {"SU":"Satvic",
+                  "MO":"Satvic",
+                  "ME":"Rajasic",
+                  "VE":"Rajasic",
+                  "MA":"Tamasic",
+                  "JU":"Satvic",
+                  "SA":"Tamasic",
                   "URAN":"?",
                   "NEPT":"?",
                   "PLUT":"?",
-                  "RAHU":"N/A",
-                  "KETU":"N/A"}
+                  "RA":"N/A",
+                  "KE":"N/A"}
 
-Planet_governance= {  "SUN$":"Soul of All",
-                      "MOON":"Mind",
-                      "MERC":"Speech",
-                      "VENU":"Semen",
-                      "MARS":"One's Strength",
-                      "JUPI":"Knowledge and General Happiness",
-                      "SATU":"Grief",
+Planet_governance= {  "SU":"Soul of All",
+                      "MO":"Mind",
+                      "ME":"Speech",
+                      "VE":"Semen",
+                      "MA":"One's Strength",
+                      "JU":"Knowledge and General Happiness",
+                      "SA":"Grief",
                       "URAN":"?",
                       "NEPT":"?",
                       "PLUT":"?",
-                      "RAHU":"N/A",
-                      "KETU":"N/A"}
+                      "RA":"N/A",
+                      "KE":"N/A"}
 
-Planet_color = {      "SUN$":"Blood red",
-                      "MOON":"Tawney",
-                      "MERC":"Green",
-                      "VENU":"Varigated",
-                      "MARS":"Blood red",
-                      "JUPI":"Tawny",
-                      "SATU":"Dark",
+Planet_color = {      "SU":"Blood red",
+                      "MO":"Tawney",
+                      "ME":"Green",
+                      "VE":"Varigated",
+                      "MA":"Blood red",
+                      "JU":"Tawny",
+                      "SA":"Dark",
                       "URAN":"?",
                       "NEPT":"?",
                       "PLUT":"?",
-                      "RAHU":"N/A",
-                      "KETU":"N/A"}
+                      "RA":"N/A",
+                      "KE":"N/A"}
 
 
-Planet_ingredients = {"SUN$":"Bones",
-                      "MOON":"Blood",
-                      "MERC":"Skin",
-                      "VENU":"Semen",
-                      "MARS":"Marrow",
-                      "JUPI":"Fat",
-                      "SATU":"Muscles",
+Planet_ingredients = {"SU":"Bones",
+                      "MO":"Blood",
+                      "ME":"Skin",
+                      "VE":"Semen",
+                      "MA":"Marrow",
+                      "JU":"Fat",
+                      "SA":"Muscles",
                       "URAN":"?",
                       "NEPT":"?",
                       "PLUT":"?",
-                      "RAHU":"N/A",
-                      "KETU":"N/A"}
+                      "RA":"N/A",
+                      "KE":"N/A"}
 
-Planet_direction = {      "SUN$":"South",
-                          "MOON":"North-West",
-                          "MERC":"North-East",
-                          "VENU":"South-East",
-                          "MARS":"South",
-                          "JUPI":"North-East",
-                          "SATU":"West",
+Planet_direction = {      "SU":"South",
+                          "MO":"North-West",
+                          "ME":"North-East",
+                          "VE":"South-East",
+                          "MA":"South",
+                          "JU":"North-East",
+                          "SA":"West",
                           "URAN":"?",
                           "NEPT":"?",
                           "PLUT":"?",
-                          "RAHU":"South-west",
-                          "KETU":"N/A"}
+                          "RA":"South-west",
+                          "KE":"N/A"}
 
-Planet_houses = {         "SUN$":"10",
-                          "MOON":"4",
-                          "MERC":"1",
-                          "VENU":"4",
-                          "MARS":"10",
-                          "JUPI":"1",
-                          "SATU":"7",
+Planet_houses = {         "SU":"10",
+                          "MO":"4",
+                          "ME":"1",
+                          "VE":"4",
+                          "MA":"10",
+                          "JU":"1",
+                          "SA":"7",
                           "URAN":"?",
                           "NEPT":"?",
                           "PLUT":"?",
-                          "RAHU":"?",
-                          "KETU":"N/A"}
+                          "RA":"?",
+                          "KE":"N/A"}
 
 
-Planet_friends = {        "SUN$":["MOON", "MARS", "JUPI"],
-                          "MOON":["SUN$", "MERC"],
-                          "MERC":["SUN$", "VENU"],
-                          "VENU":["MERC", "SATU"],
-                          "MARS":["SUN$", "MOON", "JUPI"],
-                          "JUPI":["SUN$", "MOON", "MARS"],
-                          "SATU":["MERC", "VENU"],
+Planet_friends = {        "SU":["MO", "MA", "JU"],
+                          "MO":["SU", "ME"],
+                          "ME":["SU", "VE"],
+                          "VE":["ME", "SA"],
+                          "MA":["SU", "MO", "JU"],
+                          "JU":["SU", "MO", "MA"],
+                          "SA":["ME", "VE"],
                           "URAN":"?",
                           "NEPT":"?",
                           "PLUT":"?",
-                          "RAHU":["JUPI", "VENU", "SATU"],
-                          "KETU":["MARS", "VENU", "SATU"]}
+                          "RA":["JU", "VE", "SA"],
+                          "KE":["MA", "VE", "SA"]}
 
-Planet_enemies = {        "SUN$":["VENU", "SATU"],
-                          "MOON":"N/A",
-                          "MERC":["MOON"],
-                          "VENU":["MOON", "SUN$"],
-                          "MARS":["MERC"],
-                          "JUPI":["MERC", "VENU"],
-                          "SATU":["SUN$", "MOON", "MARS"],
+Planet_enemies = {        "SU":["VE", "SA"],
+                          "MO":"N/A",
+                          "ME":["MO"],
+                          "VE":["MO", "SU"],
+                          "MA":["ME"],
+                          "JU":["ME", "VE"],
+                          "SA":["SU", "MO", "MA"],
                           "URAN":"?",
                           "NEPT":"?",
                           "PLUT":"?",
-                          "RAHU":["SUN$", "MOON", "MARS"],
-                          "KETU":["SUN$", "MOON"]}
+                          "RA":["SU", "MO", "MA"],
+                          "KE":["SU", "MO"]}
 
-Planet_equals = {         "SUN$":["Mercury"],
-                          "MOON":["MARS", "JUPI", "VENU", "SATU"],
-                          "MERC":["MARS", "JUPI", "SATU"],
-                          "VENU":["MARS", "JUPI"],
-                          "MARS":["VENU", "SATU"],
-                          "JUPI":["SATU"],
-                          "SATU":["JUPI"],
+Planet_equals = {         "SU":["Mercury"],
+                          "MO":["MA", "JU", "VE", "SA"],
+                          "ME":["MA", "JU", "SA"],
+                          "VE":["MA", "JU"],
+                          "MA":["VE", "SA"],
+                          "JU":["SA"],
+                          "SA":["JU"],
                           "URAN":"?",
                           "NEPT":"?",
                           "PLUT":"?",
-                          "RAHU":["MERC"],
-                          "KETU":["MERC", "JUPI"]}
+                          "RA":["ME"],
+                          "KE":["ME", "JU"]}
 
 Temp_friends = { "1":["2", "3", "4", "10", "11", "12"],
                  "2":["3", "4", "5", "11", "12", "1"],
@@ -269,6 +269,38 @@ Temp_enemies = {"1": ["1", "5", "6", "7", "8", "9"],
                 "10": ["10", "2", "3", "4", "5", "6"],
                 "11": ["11", "3", "4", "5", "6", "7"],
                 "12": ["12", "4", "5", "6", "7", "8"]}
+
+
+signs_List_ws = {"Ari":"B16",
+                 "Tau":"C16",
+                 "Gem":"D16",
+                 "Can":"E16",
+                 "Leo":"F16",
+                 "Vir":"G16",
+                 "Lib":"H16",
+                 "Sco":"I16",
+                 "Sag":"J16",
+                 "Cap":"K16",
+                 "Aqu":"L16",
+                 "Pis":"M16"}
+
+House_List_ws= {"1": "B26",
+                "2": "C26",
+                "3": "D26",
+                "4": "E26",
+                "5": "F26",
+                "6": "G26",
+                "7": "H26",
+                "8": "I26",
+                "9": "J26",
+                "10":"K26",
+                "11":"L26",
+                "12":"M26"}
+
+Dignity_List= ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M","N"]
+
+SH_List= ["B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M"]
+
 
 
 

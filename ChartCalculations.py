@@ -71,7 +71,7 @@ class Chart(object):
         print("")
 
 
-    def CaclHouses(self, Bday_accurate, lat, lon):
+    def CaclHouses(self, Bday_accurate, lon, lat):
         house_loc = swe.houses_ex(Bday_accurate[1], lat, lon, str.encode('P'), FLG_SIDEREAL)
 
         Cusps = house_loc[0]
@@ -231,9 +231,31 @@ class Chart(object):
 
             Block1_count = Block1_count + 1
 
+        Block1_count = 2
 
+        for l in Planet_List_loop:
 
+            if ws[signs_List_ws[ws['B'+str(Block1_count)].value]].value== None:
 
+                ws[signs_List_ws[ws['B' + str(Block1_count)].value]] =  ws['A' + str(Block1_count)].value
+
+            else:
+                ws[signs_List_ws[ws['B'+str(Block1_count)].value]]=ws[signs_List_ws[ws['B'+str(Block1_count)].value]].value+ "/" +ws['A'+str(Block1_count)].value
+
+            Block1_count = Block1_count + 1
+
+        Block1_count = 2
+
+        for k in Planet_List_loop:
+
+            if ws[House_List_ws[ws['M' + str(Block1_count)].value]].value== None:
+
+                ws[House_List_ws[ws['M' + str(Block1_count)].value]] = ws['A' + str(Block1_count)].value
+            else:
+
+                ws[House_List_ws[ws['M' + str(Block1_count)].value]] = ws[House_List_ws[ws['M' + str(Block1_count)].value]].value+ "/" + ws['A' + str(Block1_count)].value
+
+            Block1_count = Block1_count + 1
 
     def GetAyanamsa(self, Bday_accurate):
 
@@ -250,5 +272,7 @@ class Chart(object):
     def DateTime(self,year,month,date,hr,min,sec):
 
         return swe.utc_to_jd(year,month,date,hr,min,sec,GREG_CAL)
+
+
 
 

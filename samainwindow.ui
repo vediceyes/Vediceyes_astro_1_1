@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1046</width>
-    <height>592</height>
+    <width>1427</width>
+    <height>724</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -18,13 +18,13 @@
     <property name="geometry">
      <rect>
       <x>50</x>
-      <y>40</y>
-      <width>991</width>
-      <height>441</height>
+      <y>60</y>
+      <width>1351</width>
+      <height>591</height>
      </rect>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>1</number>
     </property>
     <widget class="QWidget" name="tab">
      <attribute name="title">
@@ -33,9 +33,9 @@
      <widget class="QWidget" name="formLayoutWidget">
       <property name="geometry">
        <rect>
-        <x>30</x>
+        <x>100</x>
         <y>20</y>
-        <width>401</width>
+        <width>741</width>
         <height>341</height>
        </rect>
       </property>
@@ -87,6 +87,13 @@
          </property>
         </widget>
        </item>
+       <item row="3" column="1">
+        <widget class="QTimeEdit" name="TimeInput">
+         <property name="displayFormat">
+          <string>hh:mm</string>
+         </property>
+        </widget>
+       </item>
        <item row="4" column="0">
         <widget class="QLabel" name="label_3">
          <property name="text">
@@ -97,19 +104,22 @@
        <item row="4" column="1">
         <widget class="QLineEdit" name="locstring"/>
        </item>
-       <item row="5" column="0">
-        <widget class="QPushButton" name="setEPH">
-         <property name="text">
-          <string>SetupEPH</string>
-         </property>
-        </widget>
-       </item>
        <item row="5" column="1">
         <widget class="QLabel" name="label_9">
          <property name="text">
-          <string>Enter: City, State, Country</string>
+          <string>Location format: City, State, Country</string>
          </property>
         </widget>
+       </item>
+       <item row="6" column="0">
+        <widget class="QLabel" name="label_5">
+         <property name="text">
+          <string>TimeZone</string>
+         </property>
+        </widget>
+       </item>
+       <item row="6" column="1">
+        <widget class="QComboBox" name="Timezone"/>
        </item>
        <item row="7" column="0">
         <widget class="QLabel" name="label_7">
@@ -139,60 +149,19 @@
          </property>
         </widget>
        </item>
-       <item row="3" column="1">
-        <widget class="QTimeEdit" name="TimeInput">
-         <property name="displayFormat">
-          <string>hh:mm</string>
-         </property>
-        </widget>
-       </item>
-       <item row="6" column="0">
-        <widget class="QLabel" name="label_5">
-         <property name="text">
-          <string>TimeZone</string>
-         </property>
-        </widget>
-       </item>
-       <item row="6" column="1">
-        <widget class="QComboBox" name="Timezone"/>
-       </item>
-       <item row="9" column="0">
-        <widget class="QLabel" name="label_11">
-         <property name="text">
-          <string>UTC</string>
-         </property>
-        </widget>
-       </item>
-       <item row="9" column="1">
-        <widget class="QLabel" name="UTCDisplay">
-         <property name="text">
-          <string/>
-         </property>
-        </widget>
-       </item>
       </layout>
      </widget>
-     <widget class="QTableView" name="tableView">
+     <widget class="QPushButton" name="savebirth">
       <property name="geometry">
        <rect>
-        <x>460</x>
-        <y>20</y>
-        <width>521</width>
-        <height>341</height>
-       </rect>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="CalcBirth">
-      <property name="geometry">
-       <rect>
-        <x>140</x>
-        <y>360</y>
-        <width>99</width>
+        <x>410</x>
+        <y>370</y>
+        <width>151</width>
         <height>32</height>
        </rect>
       </property>
       <property name="text">
-       <string>Calculate</string>
+       <string>Save Birth Data</string>
       </property>
      </widget>
     </widget>
@@ -200,7 +169,308 @@
      <attribute name="title">
       <string>Chart</string>
      </attribute>
+     <widget class="QTableWidget" name="Planet_Dignity">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>1341</width>
+        <height>261</height>
+       </rect>
+      </property>
+      <row>
+       <property name="text">
+        <string>SUN</string>
+       </property>
+      </row>
+      <row>
+       <property name="text">
+        <string>MOON</string>
+       </property>
+      </row>
+      <row>
+       <property name="text">
+        <string>MERC</string>
+       </property>
+      </row>
+      <row>
+       <property name="text">
+        <string>VENUS</string>
+       </property>
+      </row>
+      <row>
+       <property name="text">
+        <string>MARS</string>
+       </property>
+      </row>
+      <row>
+       <property name="text">
+        <string>JUPITER</string>
+       </property>
+      </row>
+      <row>
+       <property name="text">
+        <string>SATURN</string>
+       </property>
+      </row>
+      <row>
+       <property name="text">
+        <string>RAHU</string>
+       </property>
+      </row>
+      <row>
+       <property name="text">
+        <string>KETU</string>
+       </property>
+      </row>
+      <column>
+       <property name="text">
+        <string>Planet Name</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Lagna</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Lagna Lord</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Exalt</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Fallen</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Trik</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>P.Friend</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>P.Enemy</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>P.Neutral</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>T.Friend</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>T.Enemy</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Dignity</string>
+       </property>
+      </column>
+     </widget>
+     <widget class="QTableWidget" name="Sign_table">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>300</y>
+        <width>1351</width>
+        <height>121</height>
+       </rect>
+      </property>
+      <row>
+       <property name="text">
+        <string>Planets</string>
+       </property>
+      </row>
+      <column>
+       <property name="text">
+        <string>Aries</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Taurus</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Gemini</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Cancer</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Leo</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Virgo</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Libra</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Scorpio</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Sagittarius</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Capricorn</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Aquarius</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Pisces</string>
+       </property>
+      </column>
+     </widget>
+     <widget class="QTableWidget" name="HouseTable">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>430</y>
+        <width>1341</width>
+        <height>121</height>
+       </rect>
+      </property>
+      <row>
+       <property name="text">
+        <string>Planets</string>
+       </property>
+      </row>
+      <column>
+       <property name="text">
+        <string>1st House</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>2nd House</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>3rd House</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>4th House</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>5th House</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>6th House</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>7th House</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>8th House</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>9th House</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>10th House</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>11th House</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>12th House</string>
+       </property>
+      </column>
+     </widget>
     </widget>
+   </widget>
+   <widget class="QWidget" name="horizontalLayoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>40</x>
+      <y>10</y>
+      <width>1241</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <layout class="QHBoxLayout" name="horizontalLayout">
+     <item>
+      <widget class="QComboBox" name="Chartname"/>
+     </item>
+     <item>
+      <widget class="QPushButton" name="LoadChart">
+       <property name="text">
+        <string>Load</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="label_6">
+       <property name="text">
+        <string>Horoscope for :</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="title">
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+    </layout>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menuBar">
@@ -208,7 +478,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1046</width>
+     <width>1427</width>
      <height>22</height>
     </rect>
    </property>
