@@ -13,6 +13,7 @@ from pytz import timezone
 import datetime
 import openpyxl
 import glob
+from openpyxl import Workbook
 
 
 birth_chart_list = glob.glob("/Users/anandramamurthy/PycharmProjects/Vediceyes_astro_1_1/Birthdata*.xlsx")
@@ -48,6 +49,12 @@ class UI(QMainWindow, ui_samainwindow.Ui_SAMainWindow,Chart,Nominatim):
 
     def Create_chartdata(self):
 
+        Chartbook = Workbook()
+        Chartsheet = Chartbook.active
+
+        Chartsheet.append(["Name", "DOB Month", "DOB Date", "DOB Year", "Time(Hour)", "Minutes","Location","Time Zone", "Longitude" "Lattitude"])
+
+        Name = self.NameInput.text()
 
         year = self.DateInput.date().year()
         month = self.DateInput.date().month()
@@ -56,14 +63,32 @@ class UI(QMainWindow, ui_samainwindow.Ui_SAMainWindow,Chart,Nominatim):
         hour = self.TimeInput.time().hour()
         minute = self.TimeInput.time().minute()
 
-
-        self.latDisplay.setText(str(self.location.latitude))
-        self.longDisplay.setText(str(self.location.longitude))
-
         Location = self.locstring.text()
+        geolocator = Nominatim(scheme='http')
+        Find_location = geolocator.geocode(Location)
         tzvalue = self.Timezone.currentText()
-        Long = self.location.latitude
-        lat = self.location.longitude
+        Long = Find_location.longitude
+        lat = Find_location.latitude
+
+        Chartsheet['D2'] = year
+        Chartsheet['B2'] = month
+        Chartsheet['C2'] = day
+        Chartsheet['A2'] = Name
+
+        Chartsheet['E2'] = hour
+        Chartsheet['F2'] = minute
+
+        Chartsheet['G2'] = Location
+        Chartsheet['H2'] = tzvalue
+        Chartsheet['I2'] = Long
+        Chartsheet['J2'] = lat
+
+
+        self.latDisplay.setText(str(Find_location.latitude))
+        self.longDisplay.setText(str(Find_location.longitude))
+
+
+        Chartbook.save("Birthdata_"+Name+".xlsx")
 
 
     def CalculateBirth(self,year,month,day, name, hour, minute, Location, tzvalue, Long, lat):
@@ -97,6 +122,8 @@ class UI(QMainWindow, ui_samainwindow.Ui_SAMainWindow,Chart,Nominatim):
 
         Bday_accurate = self.Hscope.DateTime(year, month, day, hour_utc, minute_utc, 0)
 
+        print(Bday_accurate)
+
         (HouseDict, HousePosList) = self.Hscope.CaclHouses(Bday_accurate, Long, lat)
 
         self.Hscope.CalcPlanets(HouseDict, Bday_accurate, ws)
@@ -121,8 +148,6 @@ class UI(QMainWindow, ui_samainwindow.Ui_SAMainWindow,Chart,Nominatim):
                 self.Planet_Dignity.setItem(y-2, z, QTableWidgetItem(ws[i + str(y)].value))
                 z = z + 1
 
-
-
         wb.save('BirthChart.xlsx')
 
     def Load_Chart(self):
@@ -146,7 +171,6 @@ class UI(QMainWindow, ui_samainwindow.Ui_SAMainWindow,Chart,Nominatim):
         self.CalculateBirth(year,month,day, name, hour, minute, Location, tzvalue, Long, lat)
 
         # upload to table
-
 
 
 

@@ -3,7 +3,7 @@ import collections
 from Swiss_eph_constants import *
 
 
-swe.set_ephe_path('/usr/share/ephe') # set path to ephemeris files
+swe.set_ephe_path('/usr/share/ephe') #set path to ephemeris files
 
 
 
@@ -72,6 +72,9 @@ class Chart(object):
 
 
     def CaclHouses(self, Bday_accurate, lon, lat):
+
+        print(lat)
+        print(lon)
         house_loc = swe.houses_ex(Bday_accurate[1], lat, lon, str.encode('P'), FLG_SIDEREAL)
 
         Cusps = house_loc[0]
@@ -272,7 +275,3 @@ class Chart(object):
     def DateTime(self,year,month,date,hr,min,sec):
 
         return swe.utc_to_jd(year,month,date,hr,min,sec,GREG_CAL)
-
-
-
-
